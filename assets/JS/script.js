@@ -11,7 +11,7 @@ var animatedURL = "";
 // var gifState = "still";
 
 // array of initial values/emotions to be displayed
-var emotions = ["tired", "confused", "mind blown", "hungry", "hangry", "frustrated", "relaxed", "sassy", "suspicious"];
+var emotions = ["tired", "confused", "mind blown", "hungry", "hangry", "frustrated", "relaxed", "sassy", "suspicious", "happy"];
 var addedEmotions = [];
 
 // user input to add to buttons/array

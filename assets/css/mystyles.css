@@ -3,7 +3,7 @@
 }
 
 .gif-div {
-    /* display: inline; */
-    float: left;
+    display: inline-block;
+    /* float: left; */
     margin: 1.5%;
 }
