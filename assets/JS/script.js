@@ -8,7 +8,7 @@ var apiURLBase = "https://api.giphy.com/v1/gifs/search?api_key=" + authKey + "&l
 var stillURL = "";
 var animatedURL = "";
 
-var isStill = true;
+// var gifState = "still";
 
 // array of initial values/emotions to be displayed
 var emotions = ["tired", "confused", "mind blown", "hungry", "hangry", "frustrated", "relaxed", "sassy", "suspicious"];
@@ -78,6 +78,9 @@ function clear() {
 // show the initial buttons
 clear();
 
+// hide gif-container until something is clicked
+$(".gif-container").hide();
+
 // on.click event for the buttons up top - call the Giphy API and return 10 GIFs to the DOM
 
 $("#buttonsDiv").on("click", ".my-emotion", function(){ //event delegation syntax for the on.click event to read dynamically added buttons
@@ -86,17 +89,20 @@ console.log($(this).val());
 
 var queryTerm = $(this).val();
 var queryURL = apiURLBase + queryTerm;
-console.log(queryURL); 
+// console.log(queryURL); 
 // the ajax call and promise
 $.ajax({
     url: queryURL,
     method: "GET"
 }).then(function(dataReturn) {
-    console.log(dataReturn);
+    $(".gif-container").show();
+
+    $(".gif-div").remove();
+    // console.log(dataReturn);
     //this stores the data (the bit we're interested in) in a variable
     var results = dataReturn.data;
     //     
-    console.log(results);
+    // console.log(results);
     for (var k = 0; k < results.length; k++) {
         stillURL = results[k].images.fixed_height_still.url;
         animatedURL = results[k].images.fixed_height.url;
@@ -104,7 +110,7 @@ $.ajax({
     console.log(stillURL);
     console.log(animatedURL);
 
-        var GIFdiv = $("<div>");
+        var GIFdiv = $("<div>").addClass("gif-div");
         var paraEl = $("<p>").text("Rating: " + rating).addClass("rating");
         var emotionGIF = $("<img>");
         emotionGIF.attr("src", stillURL).attr("gif-still", stillURL).attr("gif-animated", animatedURL).attr("gif-state", "still").addClass("gif");
@@ -112,23 +118,9 @@ $.ajax({
         GIFdiv.prepend(paraEl);
         GIFdiv.append(emotionGIF);
 
-        $("#GifDiv").append(GIFdiv);
-
-
-        
-
+        $("#gifdiv").append(GIFdiv); 
     }
-
-
-
-
-
-
-
-
-
-    })
-
+    });
 })
 
 
@@ -153,8 +145,19 @@ $("#userInputBtn").on("click", function(event) {
     }
 })
 
+// click event to listen for click on the still image so we can toggle animate/still of the gif
+$("#gifdiv").on("click", ".gif", function(){
+state = $(this).attr("gif-state");
 
+if (state === "still") {
+    $(this).attr("gif-state", "animated");
+    $(this).attr("src", $(this).attr("gif-animated"));
+} else if (state === "animated") {
+    $(this).attr("gif-state", "still");
+    $(this).attr("src", $(this).attr("gif-still"));
 
+}
+});
 
 
 
