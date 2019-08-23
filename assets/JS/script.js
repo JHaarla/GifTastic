@@ -16,7 +16,7 @@ $(document).ready(function(){
     // var gifState = "still";
     
     // array of initial values/emotions to be displayed
-    var emotions = ["tired", "confused", "mind blown", "hungry", "hangry", "frustrated", "relaxed", "sassy", "suspicious", "happy", "over it", "whatever"];
+    var emotions = ["tired", "confused", "mind blown", "hungry", "hangry", "frustrated", "relaxed", "sassy", "suspicious", "happy", "over it", "whatever", "omg", "whoa"];
     var addedEmotions = [];
     
     // user input to add to buttons/array
