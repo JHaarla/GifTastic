@@ -16,7 +16,7 @@ $(document).ready(function(){
     // var gifState = "still";
     
     // array of initial values/emotions to be displayed
-    var emotions = ["tired", "confused", "mind blown", "hungry", "hangry", "frustrated", "relaxed", "sassy", "suspicious", "happy", "over it"];
+    var emotions = ["tired", "confused", "mind blown", "hungry", "hangry", "frustrated", "relaxed", "sassy", "suspicious", "happy", "over it", "whatever"];
     var addedEmotions = [];
     
     // user input to add to buttons/array
@@ -112,19 +112,25 @@ $(document).ready(function(){
                 stillURL = results[k].images.fixed_height_still.url;
                 animatedURL = results[k].images.fixed_height.url;
                 var rating = results[k].rating;
+                var title = results[k].title;
+
             console.log(stillURL);
             console.log(animatedURL);
     
-                var GIFdiv = $("<div>").addClass("gif-div");
-                var paraEl = $("<p>").text("Rating: " + rating).addClass("rating");
-                var emotionGIF = $("<img>");
-                emotionGIF.attr("src", stillURL).attr("gif-still", stillURL).attr("gif-animated", animatedURL).attr("gif-state", "still").addClass("gif");
+            var GIFdiv = $("<div>").addClass("gif-div");
+            var paraEl = $("<p>").text("Rating: " + rating).addClass("rating");
+
+            title = $("<p>").text(title).addClass("title");
+
+            var emotionGIF = $("<img>");
+            emotionGIF.attr("src", stillURL).attr("gif-still", stillURL).attr("gif-animated", animatedURL).attr("gif-state", "still").addClass("gif");
     
-                GIFdiv.prepend(paraEl);
-                GIFdiv.append(emotionGIF);
-    
-                $("#gifdiv").append(GIFdiv); 
-            }
+            GIFdiv.prepend(title);
+            GIFdiv.append(emotionGIF);
+            GIFdiv.append(paraEl);
+
+            $("#gifdiv").prepend(GIFdiv); 
+    }
             });
         })
     
@@ -189,22 +195,29 @@ $(document).ready(function(){
             //     // console.log(dataReturn);
             //     //this stores the data (the bit we're interested in) in a variable
                 var results = dataReturn.data;
+
+
             //     // console.log(results);
                 for (var k = 0; k < results.length; k++) {
                     stillURL = results[k].images.fixed_height_small_still.url;
                     animatedURL = results[k].images.fixed_height_small.url;
                     var rating = results[k].rating;
+                    var title = results[k].title;
                 console.log(stillURL);
                 console.log(animatedURL);
             
                     var GIFdiv = $("<div>").addClass("gif-div");
                     var paraEl = $("<p>").text("Rating: " + rating).addClass("rating");
+
+                    title = $("<p>").text(title).addClass("title");
+
                     var emotionGIF = $("<img>");
                     emotionGIF.attr("src", stillURL).attr("gif-still", stillURL).attr("gif-animated", animatedURL).attr("gif-state", "still").addClass("gif");
             
-                    GIFdiv.prepend(paraEl);
+                    GIFdiv.prepend(title);
                     GIFdiv.append(emotionGIF);
-            
+                    GIFdiv.append(paraEl);
+
                     $("#gifdiv").prepend(GIFdiv); 
                 }
                 });

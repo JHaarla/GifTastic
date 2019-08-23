@@ -15,4 +15,20 @@
 .gif {
     height: 150px;
     /* width: 100%; */
+    margin-bottom: .5em;
+}
+
+.rating {
+    line-height: .5em;
+    font-size: .7em;
+    color: rgb(126, 126, 126);
+}
+
+.title {
+    line-height: .7em;
+    font-size: .75em;
+}
+
+#moreGIF {
+    margin: .5em;
 }
