@@ -93,6 +93,9 @@ $(document).ready(function(){
         offset = 0;
         queryTerm = $(this).val();
         queryURL = apiURLBase + queryTerm;
+
+        $(".my-emotion").removeClass("active-emotion");
+        $(this).addClass("active-emotion");
     
         console.log(queryURL); 
         // the ajax call and promise
