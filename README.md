@@ -2,6 +2,8 @@
 
 This is a fun GIF viewer that the user can add more viewable categories to. This was created to learn about API calls and how to manipulate the returned data into something useful. In this case, we display fun GIFs. Everyone loves GIFs!!!
 
+Live deployment: https://jhaarla.github.io/GifTastic/
+
 **Under the Hood**
 
 - AJAX API calls with custom query strings to the Giphy API
