@@ -4,6 +4,8 @@ This is a fun GIF viewer that the user can add more viewable categories to. This
 
 Live deployment: https://jhaarla.github.io/GifTastic/
 
+![screenshot](https://github.com/JHaarla/GifTastic/blob/master/assets/scrn1.PNG "screenshot of app")
+
 **Under the Hood**
 
 - AJAX API calls with custom query strings to the Giphy API
