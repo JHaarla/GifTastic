@@ -11,7 +11,4 @@ Live deployment: https://jhaarla.github.io/GifTastic/
 - User can add buttons for more query terms
 - All existing and added buttons are added to the DOM dynamically from an array via a for loop
 
-
-*This is a homework assignment for UNCC Coding Bootcamp*
-
-Written by Jarkko Haarla
+All code written by Jarkko Haarla
